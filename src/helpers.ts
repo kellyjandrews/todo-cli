@@ -32,8 +32,15 @@ export async function checkForTodosFile(filePath: string) {
 
 export async function getTodos(filePath: string) {
     let todoFilePath = getPath(filePath);
+    let data = await fs.readFile(todoFilePath, "utf8")
+    return JSON.parse(data).todos
 }
 
-async function saveTodos() { }
+export async function saveTodos(filePath: string, data: string[]) {
+    let todoFilePath = getPath(filePath)
+    let oldTodos = await getTodos(filePath)
+    let newTodos = oldTodos.concat(data);
+    await fs.writeFile(todoFilePath, JSON.stringify({ todos: newTodos }));
+}
 
 
