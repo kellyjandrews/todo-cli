@@ -45,7 +45,10 @@
     "bin": "todo",
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "hooks": {
+      "init": "./lib/hooks/init/todos"
+    }
   },
   "repository": "kellyjandrews/todo-cli",
   "scripts": {

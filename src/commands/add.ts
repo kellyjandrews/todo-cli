@@ -1,15 +1,7 @@
 import { Command, flags } from '@oclif/command'
-import * as fs from 'fs-extra'
-import * as path from 'path'
+import { getTodos } from '../helpers';
 
-async function isExists(path: any) {
-  try {
-    await fs.access(path);
-    return true;
-  } catch {
-    return false;
-  }
-};
+
 
 
 export default class Add extends Command {
@@ -29,35 +21,11 @@ export default class Add extends Command {
 
   async run() {
     const { argv } = this.parse(Add)
-    let todoFilePath = path.join(this.config.dataDir, 'todos.txt')
-    let exist = await isExists(this.config.dataDir);
-
-    if (!exist) {
-      await fs.mkdir(this.config.dataDir)
-      await fs.writeFile(todoFilePath, null);
-    }
-
-    let rawdata = await fs.readFile(todoFilePath, "utf-8")
-    let todos = rawdata.split(",")
+    let todos = await getTodos(this.config.dataDir)
     let argCount = argv.length
 
-    if (argCount != 0) {
-
-      for (let i = 0; i < argCount; i++) {
-        todos.push(argv[i])
-      }
-
-      await fs.writeFile(todoFilePath, todos);
-      let plural = argCount > 1 ? 's' : '';
-
-      this.log(`${argCount} new todo${plural} created.`)
-
-    } else {
-
-      for (let i = 0; i < todos.length; i++) {
-        this.log(todos[i])
-      }
-
+    if (argCount === 0) {
+      this.error("Please provide todos.")
     }
   }
 }
