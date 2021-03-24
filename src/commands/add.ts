@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command'
-import { getTodos } from '../helpers';
+import { getTodos, saveTodos } from '../helpers';
 
 
 
@@ -21,11 +21,14 @@ export default class Add extends Command {
 
   async run() {
     const { argv } = this.parse(Add)
-    let todos = await getTodos(this.config.dataDir)
     let argCount = argv.length
 
     if (argCount === 0) {
       this.error("Please provide todos.")
+    } else {
+      saveTodos(this.config.dataDir, argv)
+      let plural = argCount > 1 ? 's' : '';
+      this.log(`${argCount} new todo${plural} created.`)
     }
   }
 }
