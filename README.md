@@ -28,44 +28,27 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`todo `](#todo-)
-* [`todo delete [FILE]`](#todo-delete-file)
+* [`todo add`](#todo-add)
 * [`todo help [COMMAND]`](#todo-help-command)
-* [`todo update [FILE]`](#todo-update-file)
+* [`todo list`](#todo-list)
 
-## `todo `
+## `todo add`
 
-describe the command here
+Display or add a new todo.
 
 ```
 USAGE
-  $ todo
+  $ todo add
 
 OPTIONS
   -h, --help  show CLI help
 
 EXAMPLE
-  $ todo-cli hello
-  hello world from ./src/hello.ts!
+  $ todo "Task1" "Task2"
+  2 new todos created.
 ```
 
-_See code: [src/commands/index.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/index.ts)_
-
-## `todo delete [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ todo delete [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/delete.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/delete.ts)_
+_See code: [src/commands/add.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/add.ts)_
 
 ## `todo help [COMMAND]`
 
@@ -84,19 +67,22 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `todo update [FILE]`
+## `todo list`
 
-describe the command here
+Display or add a new todo.
 
 ```
 USAGE
-  $ todo update [FILE]
+  $ todo list
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ todo list
+  Todo Item 1
+  Todo Item 2
 ```
 
-_See code: [src/commands/update.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/update.ts)_
+_See code: [src/commands/list.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/list.ts)_
 <!-- commandsstop -->
