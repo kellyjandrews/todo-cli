@@ -43,4 +43,9 @@ export async function saveTodos(filePath: string, data: string[]) {
     await fs.writeFile(todoFilePath, JSON.stringify({ todos: newTodos }));
 }
 
+export async function deleteTodos(filePath: string, data: string[]) {
+    let todoFilePath = getPath(filePath)
+    await fs.writeFile(todoFilePath, JSON.stringify({ todos: data }));
+}
+
 

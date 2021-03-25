@@ -29,6 +29,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`todo add`](#todo-add)
+* [`todo delete`](#todo-delete)
 * [`todo help [COMMAND]`](#todo-help-command)
 * [`todo list`](#todo-list)
 
@@ -49,6 +50,23 @@ EXAMPLE
 ```
 
 _See code: [src/commands/add.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/add.ts)_
+
+## `todo delete`
+
+Delete a todo.
+
+```
+USAGE
+  $ todo delete
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ todo delete
+```
+
+_See code: [src/commands/delete.ts](https://github.com/kellyjandrews/todo-cli/blob/v1.0.0/src/commands/delete.ts)_
 
 ## `todo help [COMMAND]`
 
